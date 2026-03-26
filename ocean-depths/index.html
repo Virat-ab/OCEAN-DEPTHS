@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ocean Depths — Into the Abyss</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-bubbles">
+        <span></span><span></span><span></span>
+      </div>
+      <p class="loader-text">Descending...</p>
+      <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Depth Indicator -->
+  <div class="depth-indicator" id="depth-indicator">
+    <div class="depth-line"></div>
+    <span class="depth-value" id="depth-value">0m</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">↓ ABYSS</div>
+    <ul class="nav-links">
+      <li><a href="#surface">Surface</a></li>
+      <li><a href="#sunlight">Sunlight</a></li>
+      <li><a href="#twilight">Twilight</a></li>
+      <li><a href="#midnight">Midnight</a></li>
+      <li><a href="#abyss">Abyss</a></li>
+    </ul>
+    <div class="nav-pressure" id="nav-pressure">1 ATM</div>
+  </nav>
+
+  <!-- ─── SECTION 1: SURFACE ─── -->
+  <section class="zone" id="surface" data-depth="0" data-pressure="1" data-zone="Sunlight Zone">
+    <div class="zone-bg surface-bg"></div>
+    <div class="particles" id="surface-particles"></div>
+
+    <div class="zone-content hero-content">
+      <div class="hero-eyebrow">An Interactive Journey</div>
+      <h1 class="hero-title">
+        <span class="line">Into the</span>
+        <span class="line italic">Ocean</span>
+        <span class="line">Depths</span>
+      </h1>
+      <p class="hero-sub">From the sun-kissed surface to the crushing darkness of the hadal zone — scroll to descend.</p>
+      <div class="scroll-cue">
+        <span>Scroll to Dive</span>
+        <div class="scroll-arrow">
+          <div class="arrow-shaft"></div>
+          <div class="arrow-head"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface-waves">
+      <div class="wave w1"></div>
+      <div class="wave w2"></div>
+      <div class="wave w3"></div>
+    </div>
+
+    <!-- Creatures near surface -->
+    <div class="creature seagull" id="seagull">🕊</div>
+    <div class="floating-text ft1">200m — Sunlight Zone begins below</div>
+  </section>
+
+  <!-- ─── SECTION 2: SUNLIGHT / EPIPELAGIC ─── -->
+  <section class="zone" id="sunlight" data-depth="200" data-pressure="21" data-zone="Epipelagic Zone">
+    <div class="zone-bg sunlight-bg"></div>
+    <div class="particles" id="sunlight-particles"></div>
+
+    <div class="zone-content">
+      <div class="zone-tag">0 – 200 meters</div>
+      <h2 class="zone-title">Sunlight Zone</h2>
+      <p class="zone-subtitle">Epipelagic</p>
+      <p class="zone-desc">
+        Where sunlight pierces water and life thrives in abundance. This vibrant layer hosts 90% of all marine life — coral reefs bloom, dolphins breach, and bioluminescent plankton drift like living stars at night.
+      </p>
+
+      <div class="fact-cards" id="fact-cards-sunlight">
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">🐠</div>
+          <h3>Coral Reefs</h3>
+          <p>Cover less than 1% of the ocean floor but support 25% of all marine species.</p>
+        </div>
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">☀️</div>
+          <h3>Photosynthesis</h3>
+          <p>Phytoplankton here produce 50% of Earth's oxygen. Every second breath you take comes from the sea.</p>
+        </div>
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">🐬</div>
+          <h3>Apex Hunters</h3>
+          <p>Dolphins, sharks, and tuna rule this zone — speed, light, and intelligence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="creature fish-school" id="fish-school">
+      <span>🐟</span><span>🐟</span><span>🐟</span><span>🐟</span><span>🐟</span>
+    </div>
+    <div class="creature jellyfish j1">🪼</div>
+    <div class="creature jellyfish j2">🪼</div>
+    <div class="depth-marker">— 200m</div>
+  </section>
+
+  <!-- ─── SECTION 3: TWILIGHT / MESOPELAGIC ─── -->
+  <section class="zone" id="twilight" data-depth="1000" data-pressure="101" data-zone="Mesopelagic Zone">
+    <div class="zone-bg twilight-bg"></div>
+    <div class="particles" id="twilight-particles"></div>
+    <div class="biolum-layer" id="biolum"></div>
+
+    <div class="zone-content">
+      <div class="zone-tag">200 – 1,000 meters</div>
+      <h2 class="zone-title">Twilight Zone</h2>
+      <p class="zone-subtitle">Mesopelagic</p>
+      <p class="zone-desc">
+        Light fades to a cold, ghostly blue. Here, creatures have evolved extraordinary tools — bioluminescence, enormous eyes, and the ability to withstand pressures 100x greater than at the surface.
+      </p>
+
+      <div class="pressure-gauge" id="pressure-gauge">
+        <div class="gauge-label">Pressure at this depth</div>
+        <div class="gauge-bar">
+          <div class="gauge-fill" id="gauge-fill" style="width: 20%"></div>
+        </div>
+        <div class="gauge-value">~101 ATM · 1,480 PSI</div>
+      </div>
+
+      <div class="fact-cards">
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">✨</div>
+          <h3>Bioluminescence</h3>
+          <p>76% of deep-sea animals produce their own light — flashes used to hunt, attract mates, or confuse predators.</p>
+        </div>
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">👁️</div>
+          <h3>Giant Eyes</h3>
+          <p>The giant squid has eyes the size of dinner plates — evolved to detect the faintest traces of light.</p>
+        </div>
+        <div class="fact-card" tabindex="0">
+          <div class="fact-icon">🌊</div>
+          <h3>Marine Snow</h3>
+          <p>Dead organic matter drifts down like snow — this "marine snow" feeds entire ecosystems below.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="creature anglerfish" id="anglerfish">
+      <span class="angler-body">🐟</span>
+      <span class="angler-lure">💡</span>
+    </div>
+    <div class="depth-marker">— 1,000m</div>
+  </section>
+
+  <!-- ─── SECTION 4: MIDNIGHT / BATHYPELAGIC ─── -->
+  <section class="zone" id="midnight" data-depth="4000" data-pressure="401" data-zone="Bathypelagic Zone">
+    <div class="zone-bg midnight-bg"></div>
+    <div class="particles" id="midnight-particles"></div>
+
+    <div class="zone-content">
+      <div class="zone-tag">1,000 – 4,000 meters</div>
+      <h2 class="zone-title">Midnight Zone</h2>
+      <p class="zone-subtitle">Bathypelagic</p>
+      <p class="zone-desc">
+        Total darkness. No sunlight ever reaches here. Cold (2–4°C), crushing pressure, and complete blackness — yet life persists in astonishing, alien forms. This is the largest living space on Earth, mostly unexplored.
+      </p>
+
+      <div class="temperature-display">
+        <div class="temp-ring">
+          <svg viewBox="0 0 120 120" class="temp-svg">
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(100,180,255,0.1)" stroke-width="6"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#64b4ff" stroke-width="6"
+              stroke-dasharray="339" stroke-dashoffset="305" stroke-linecap="round"
+              transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="temp-value">2°C</div>
+        </div>
+        <p class="temp-label">Near-freezing temperatures<br>crush all warmth</p>
+      </div>
+
+      <div class="fact-cards">
+        <div class="fact-card dark" tabindex="0">
+          <div class="fact-icon">🦑</div>
+          <h3>Vampire Squid</h3>
+          <p>Not a true squid or octopus — a living fossil from 300 million years ago, draped in a dark red cloak.</p>
+        </div>
+        <div class="fact-card dark" tabindex="0">
+          <div class="fact-icon">🐳</div>
+          <h3>Sperm Whales</h3>
+          <p>Dive up to 3km in search of giant squid — holding breath for over 90 minutes.</p>
+        </div>
+        <div class="fact-card dark" tabindex="0">
+          <div class="fact-icon">💀</div>
+          <h3>Crushing Pressure</h3>
+          <p>At 4,000m the pressure is 400x surface level — equivalent to 50 jumbo jets on your body.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="biolum-dots" id="biolum-dots"></div>
+    <div class="depth-marker">— 4,000m</div>
+  </section>
+
+  <!-- ─── SECTION 5: HADAL / ABYSS ─── -->
+  <section class="zone" id="abyss" data-depth="11000" data-pressure="1100" data-zone="Hadal Zone">
+    <div class="zone-bg abyss-bg"></div>
+    <div class="particles" id="abyss-particles"></div>
+
+    <div class="zone-content abyss-content">
+      <div class="zone-tag">6,000 – 11,000 meters</div>
+      <h2 class="zone-title abyss-title">The Hadal Zone</h2>
+      <p class="zone-subtitle">Challenger Deep · Mariana Trench</p>
+      <p class="zone-desc abyss-desc">
+        The deepest place on Earth. At 10,935 meters below sea level, the pressure is 1,100 atmospheres — enough to implode a submarine instantly. Yet here, in the absolute dark, tiny amphipods and snailfish thrive where nothing should exist.
+      </p>
+
+      <div class="abyss-stats">
+        <div class="abyss-stat">
+          <div class="stat-number" data-target="10935">0</div>
+          <div class="stat-label">Meters Deep</div>
+        </div>
+        <div class="abyss-stat">
+          <div class="stat-number" data-target="1100">0</div>
+          <div class="stat-label">Atmospheres</div>
+        </div>
+        <div class="abyss-stat">
+          <div class="stat-number" data-target="95">0</div>
+          <div class="stat-label">% Unexplored</div>
+        </div>
+      </div>
+
+      <div class="abyss-quote">
+        <blockquote>
+          "The sea, once it casts its spell, holds one in its net of wonder forever."
+          <cite>— Jacques Cousteau</cite>
+        </blockquote>
+      </div>
+
+      <div class="final-cta">
+        <p>You've reached the bottom of the world.</p>
+        <button class="ascend-btn" id="ascend-btn">↑ Return to Surface</button>
+      </div>
+    </div>
+
+    <div class="hadal-glow"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
